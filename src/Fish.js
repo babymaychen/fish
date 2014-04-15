@@ -2,7 +2,6 @@
  * Created by Daniel.Duan on 14-4-4.
  */
 var Fish = cc.Sprite.extend({
-    type:1,
     active:true,
     speed:200,
     HP:15,
@@ -16,7 +15,6 @@ var Fish = cc.Sprite.extend({
         this._super(arg.textureName);
 
         this.HP = arg.HP;
-        this.type = arg.type;
         this.speed = arg.speed;
         this.scopeMin = arg.scopeMin;
         this.scopeMax = arg.scopeMax;
@@ -120,15 +118,18 @@ Fish.create = function (arg) {
 };
 
 Fish.preSet = function () {
-    var max = MW.SITE[MW.SITE_SELECT].MAX;
-    var min = MW.SITE[MW.SITE_SELECT].MIN;
-
-    var count = Math.round(Math.random() * (max-min)) + min;
-
+    MW.CONTAINER.FISH = [];
     var fish = null;
-    for (var j = 0; j < count; j++) {
-        fish = Fish.create(FishType[MW.SITE_SELECT]);
-        fish.stopAllActions();
+    for(var i=0; i<MW.SITE[MW.SITE_SELECT].FISH.length; i++){
+        var type =MW.SITE[MW.SITE_SELECT].FISH[i].TYPE;
+        var max = MW.SITE[MW.SITE_SELECT].FISH[i].MAX;
+        var min = MW.SITE[MW.SITE_SELECT].FISH[i].MIN;
+        var count = Math.round(Math.random() * (max-min)) + min;
+        for (var j = 0; j < count; j++) {
+            fish = Fish.create(FishType[type]);
+            fish.stopAllActions();
 //        fish.unscheduleAllCallbacks();
+        }
     }
+
 };

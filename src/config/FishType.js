@@ -3,7 +3,6 @@
  */
 var FishType = [
     {
-        type:0,
         textureName:res.Fish_png,
         HP:1,
         Scale:0.2,
@@ -13,7 +12,6 @@ var FishType = [
         score:10
     },
     {
-        type:1,
         textureName:res.Fish_png,
         HP:3,
         Scale:0.35,
@@ -23,7 +21,6 @@ var FishType = [
         score:15
     },
     {
-        type:2,
         textureName:res.Fish_png,
         HP:5,
         Scale:0.5,

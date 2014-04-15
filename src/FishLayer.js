@@ -42,13 +42,6 @@ var FishLayer = cc.Layer.extend({
             });
             this.addChild(this._background, 0, 1);
 
-//            this._fish = cc.Sprite.create(res.Fish_png);
-//            this._fish.attr({
-//                scale: 0.2,
-//                x: 100,
-//                y: 200
-//            });
-//            this._background.addChild(this._fish, 1, 2);
 
             var bar = cc.Sprite.create(res.Bar_png);
             bar.attr({
@@ -57,7 +50,6 @@ var FishLayer = cc.Layer.extend({
                 x: 54,
                 y: 420
             });
-//            this.addChild(fish, 0, 1);
             this._background.addChild(bar, 1, 3);
 
             //little fish
@@ -92,8 +84,8 @@ var FishLayer = cc.Layer.extend({
 
             if (cc.sys.capabilities.hasOwnProperty('touches')) {
                 cc.eventManager.addListener({
-                    event: cc.EventListener.TOUCH_ONE_BY_ONE,
-                    onTouchEnded: function (touches, event) {
+                    event: cc.EventListener.TOUCH_ALL_AT_ONCE,
+                    onTouchesBegan:function(touches, event){
                         event.getCurrentTarget().processEvent(touches[0]);
                     }
                 }, this);
@@ -184,7 +176,7 @@ var FishLayer = cc.Layer.extend({
             if (this.collide(fish, bait)) {
                 cc.log("got fish");
                 this._state = STATE_CATCHING;
-                this.gotFish(i, this._bait._position);
+                this.gotFish(i, this._bait.getPosition());
             }
         }
     },
@@ -252,6 +244,7 @@ var FishLayer = cc.Layer.extend({
         });
         this.addChild(fail, 1, 8);
         this.addMenu();
+        this.addMainMenu();
         this.unschedule(this.updateHp);
     },
 
@@ -270,6 +263,7 @@ var FishLayer = cc.Layer.extend({
         });
         this.addChild(win, 1, 9);
         this.addMenu();
+        this.addMainMenu();
         this.unschedule(this.updateHp);
     },
 
@@ -281,7 +275,23 @@ var FishLayer = cc.Layer.extend({
         menu.x = 0;
         menu.y = 0;
         systemMenu.attr({
-            x: winSize.width - 95,
+            x: winSize.width - 120,
+            y: 5,
+            anchorX: 0,
+            anchorY: 0
+        });
+        this.addChild(menu, 1, 2);
+    },
+
+    addMainMenu: function () {
+        cc.MenuItemFont.setFontSize(18);
+        cc.MenuItemFont.setFontName("Arial");
+        var mainMenu = cc.MenuItemFont.create("Back", this.mainMenu);
+        var menu = cc.Menu.create(mainMenu);
+        menu.x = 0;
+        menu.y = 0;
+        mainMenu.attr({
+            x: winSize.width - 60,
             y: 5,
             anchorX: 0,
             anchorY: 0
@@ -291,6 +301,10 @@ var FishLayer = cc.Layer.extend({
 
     refreshGame: function () {
         cc.director.runScene(cc.TransitionFade.create(0.5, new FishLayer.scene));
+    },
+
+    mainMenu: function () {
+        cc.director.runScene(cc.TransitionFade.create(0.5, new SiteLayer.scene));
     }
 });
 

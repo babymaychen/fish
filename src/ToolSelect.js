@@ -110,7 +110,7 @@ var ToolLayer = cc.Layer.extend({
             });
             this.addChild(menu, 1, 2);
 
-            return true;
+            bRet = true;
         }
         return bRet;
     },

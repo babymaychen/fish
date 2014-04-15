@@ -18,9 +18,23 @@ MW.CONTAINER = {
 
 //site config
 MW.SITE=[
-    {NAME:"SITE1 little and more", RES: res.Background_png, MIN:5, MAX:8},
-    {NAME:"SITE2 medium", RES: res.Background1_jpg, MIN:2, MAX:5},
-    {NAME:"SITE3 large and less", RES: res.Background2_png, MIN:1, MAX:3}
+    {NAME:"SITE1 little and more", RES: res.Background_png,
+        FISH:[
+            {TYPE:0, MIN:4, MAX:6 },
+            {TYPE:1, MIN:2, MAX:4}
+        ]
+    },
+    {NAME:"SITE2 medium", RES: res.Background1_jpg,
+        FISH:[
+            {TYPE:1, MIN:3, MAX:5 },
+            {TYPE:2, MIN:1, MAX:2 }
+        ]
+    },
+    {NAME:"SITE3 large and less", RES: res.Background2_png,
+        FISH:[
+            {TYPE:2, MIN:2, MAX:3 }
+        ]
+    }
 ];
 
 //pole config
@@ -37,4 +51,4 @@ MW.BAIT=[
     {NAME:"bait3", RES: res.Bait3_png, DESCRIPTION:"", CHARM:30}
 ];
 
-MW.FISH=[];
+//MW.FISH=[];
