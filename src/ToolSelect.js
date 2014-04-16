@@ -138,7 +138,7 @@ var ToolLayer = cc.Layer.extend({
     },
 
     toolSelect: function () {
-        cc.director.runScene(cc.TransitionFade.create(1.2, new FishLayer.scene));
+        cc.director.runScene(cc.TransitionFade.create(1.2, new ThrowLayer.scene));
     }
 });
 

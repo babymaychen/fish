@@ -1,12 +1,14 @@
 var MW = MW || {};
 var winSize;
 
-//SPEED EXTRA
+//CONFIG
 MW.SPEED = 30;
 MW.SCORE = 0;
 MW.SITE_SELECT=0;
 MW.POLE_SELECT=0;
 MW.BAIT_SELECT=0;
+MW.BAIT_X = 0;
+MW.BAIT_Y = 0;
 
 //sound
 MW.SOUND = true;

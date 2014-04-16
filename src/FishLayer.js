@@ -99,10 +99,10 @@ var FishLayer = cc.Layer.extend({
 
             //bait
             //TODO 甩勾
-            var offsetX = Math.random()*60 - 30;
-            var offsetY = Math.random()*30 - 15;
-            var arg={x:winSize.width/2 + offsetX, y:winSize.height/2 + offsetY};
-            Bait.create(arg);
+//            var offsetX = Math.random()*60 - 30;
+//            var offsetY = Math.random()*30 - 15;
+//            var arg={x:winSize.width/2 + offsetX, y:winSize.height/2 + offsetY};
+            Bait.create();
 
             // schedule
             this.scheduleUpdate();

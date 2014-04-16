@@ -18,6 +18,7 @@
         "src/config/GameConfig.js",
         "src/config/FishType.js",
         "src/Bait.js",
-        "src/ToolSelect.js"
+        "src/ToolSelect.js",
+        "src/ThrowLayer.js"
     ]
 }

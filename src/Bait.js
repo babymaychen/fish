@@ -4,10 +4,12 @@
 //鱼饵
 var Bait = cc.Sprite.extend({
 
-    ctor:function (arg) {
+    ctor:function () {
         this._super(MW.BAIT[MW.BAIT_SELECT].RES);
-        this.x = arg.x;
-        this.y = arg.y;
+//        this.x = arg.x;
+//        this.y = arg.y;
+        this.x = MW.BAIT_X;
+        this.y = MW.BAIT_Y;
         this.setScale(0.3);
     },
 
