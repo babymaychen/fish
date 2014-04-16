@@ -96,7 +96,7 @@ var SiteLayer = cc.Layer.extend({
     },
 
     siteSelect: function () {
-        cc.director.runScene(cc.TransitionFade.create(1.2, new FishLayer.scene));
+        cc.director.runScene(cc.TransitionFade.create(1.2, new ToolLayer.scene));
     }
 });
 

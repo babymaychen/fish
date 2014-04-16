@@ -38,7 +38,7 @@ var ToolLayer = cc.Layer.extend({
                 y: 150
             });
 
-            this._baitLabel.setText(MW.POLE[0].NAME);
+            this._baitLabel.setText(MW.BAIT[0].NAME);
             this._baitLabel.setColor(cc.color.RED);
             this.addChild(this._baitLabel);
 
@@ -47,7 +47,7 @@ var ToolLayer = cc.Layer.extend({
             var polePageView = ccui.PageView.create();
             polePageView.setSize(cc.size(220, 150));
             polePageView.setTouchEnabled(true);
-            polePageView.x = winSize.width/2 - polePageView._size.width/2 ;
+            polePageView.x = winSize.width/2 - polePageView.getSize().width/2 ;
             polePageView.y = 250 ;
             for (var i = 0; i < MW.POLE.length; ++i) {
                 var layout1 = ccui.Layout.create();
@@ -73,7 +73,7 @@ var ToolLayer = cc.Layer.extend({
             var baitPageView = ccui.PageView.create();
             baitPageView.setSize(cc.size(100, 60));
             baitPageView.setTouchEnabled(true);
-            baitPageView.x = winSize.width/2 - baitPageView._size.width/2 ;
+            baitPageView.x = winSize.width/2 - baitPageView.getSize().width/2 ;
             baitPageView.y = 100 ;
             for (var j = 0; j < MW.BAIT.length; ++j) {
                 var layout = ccui.Layout.create();
